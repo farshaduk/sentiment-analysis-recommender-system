@@ -1,0 +1,8 @@
+Metric,VADER,TextBlob,Logistic Regression,Linear SVM
+Accuracy,0.793,0.735,0.832,0.839
+Precision (macro),0.4575,0.4656,0.5692,0.5758
+Recall (macro),0.5143,0.4559,0.7905,0.7931
+F1-Score (macro),0.4748,0.4332,0.6285,0.6363
+Precision (weighted),0.857,0.855,0.9147,0.916
+Recall (weighted),0.793,0.735,0.832,0.839
+F1-Score (weighted),0.8212,0.7854,0.8597,0.8649

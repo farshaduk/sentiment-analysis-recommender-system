@@ -1,0 +1,39 @@
+======================================================================
+STEP 14 - CROSS-MODEL COMPARISON CONCLUSION
+======================================================================
+
+Experiment design:
+  All four models were evaluated on the IDENTICAL 1000-review
+  test sample used in Phase #1 lexicon analysis.  This ensures
+  a fair ('apples-to-apples') comparison across all models.
+
+Results summary:
+  Linear SVM                     Acc=0.8390 F1(macro)=0.6363 F1(wt)=0.8649
+  Logistic Regression            Acc=0.8320 F1(macro)=0.6285 F1(wt)=0.8597
+  VADER                          Acc=0.7930 F1(macro)=0.4748 F1(wt)=0.8212
+  TextBlob                       Acc=0.7350 F1(macro)=0.4332 F1(wt)=0.7854
+
+Conclusion:
+  Best overall performer : Linear SVM  (F1-macro = 0.6363)
+  Second best            : Logistic Regression  (F1-macro = 0.6285)
+
+  Key observations:
+  - ML models (LR and SVM) generally outperform lexicon-based
+    approaches on accuracy and F1, because they are trained on
+    domain-specific labelled examples rather than relying on a
+    fixed vocabulary of sentiment words.
+  - The Neutral class remains the hardest to classify for all
+    models (lowest per-class F1), as '3-star' reviews often
+    contain mixed positive and negative language.
+  - VADER outperforms TextBlob on this technical/industrial
+    dataset because VADER's lexicon includes intensity modifiers
+    and punctuation cues more relevant to product reviews.
+  - TF-IDF + LR / SVM achieves better recall on negative reviews
+    because it has learned specific domain terms (e.g., 'broke',
+    'defect', 'return') from the training data.
+
+Recommendation for production use:
+  Given the significantly higher F1 scores, ML models (especially
+  Linear SVM with TF-IDF) are recommended for production-grade
+  sentiment analysis of Industrial & Scientific product reviews.
+======================================================================

@@ -1,0 +1,53 @@
+Phase #2 - Step 17: Automatic CSR Response
+Model: google/flan-t5-large
+======================================================================
+
+Product ASIN : B00006IC2O
+Star rating  : 5.0
+
+Customer Review:
+  I've found all kinds of uses for this: It's strong enough to hold up a
+  3'x2' corkboard , a paper towel holder , surround-sound speakers, not to
+  mention art and other light wall-hangings. Sure, most of those things
+  could be more easily attached by drilling holes in the walls, but I live
+  in an apartment with a please-don't-put-holes-in-the-wall clause in my
+  lease. I'm sure I'm not the only one. With this super-sticky stuff, I can
+  easily attach (and detach) those items without causing any damage to the
+  walls. No other two-sided tape I've seen (even the 3M Command strips ,
+  which are great for posters) is this powerful. That mounted items can be
+  so easily adjusted and removed on-the-fly is a huge plus. This is an
+  extremely versatile, useful and inexpensive product. [Update: At the time
+  I posted this review, I hadn't yet removed any of the adhesive strips
+  from the walls. When I did, the adhesive pulled much of the paint off. So
+  be warned that this is very strong adhesive; it's not wall-friendly like
+  the 3M Command products. You'll have to repaint your walls after using
+  these strips on them.]
+
+Extracted Complaint (Python keyword extraction):
+  When I did, the adhesive pulled much of the paint off. So be warned that
+  this is very strong adhesive; it's not wall-friendly like the 3M Command
+  products. You'll have to repaint your walls after using these strips on
+  them..
+
+Prompt sent to LLM:
+  [Paraphrase prompt]: Summarize the following customer complaint in one
+  sentence: "When I did, the adhesive pulled much of the paint off. So be
+  warned that this is very strong adhesive; it's not wall-friendly like the
+  3M Command products. You'll have to repaint your walls after using these
+  strips on them.." [Solution prompt]: A customer's product had this
+  problem: "This is a very strong adhesive. It's not wall-friendly like the
+  3M Command products. You'll have to repaint your walls after using these
+  strips on them." Suggest one specific solution in one sentence.
+
+Generated CSR Response (109 words):
+  Dear Customer, thank you for taking the time to share your experience
+  with product B00006IC2O. We sincerely apologize for the issue you
+  described: This is a very strong adhesive. It's not wall-friendly like
+  the 3M Command products. You'll have to repaint your walls after using
+  these strips on them. We understand how frustrating this must be,
+  especially since you expected better performance from our product. If
+  you're looking for a wall-friendly adhesive, look for 3M Command
+  products. Please reply to this message or contact our support team with
+  your order number, and we will process this right away. We value your
+  feedback and are committed to making this right.
+======================================================================

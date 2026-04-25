@@ -1,0 +1,137 @@
+              Metric    VADER  TextBlob  Difference (V-T)
+            Accuracy 0.793000  0.735000          0.058000
+   Precision (macro) 0.457451  0.465571         -0.008121
+      Recall (macro) 0.514307  0.455877          0.058431
+    F1-Score (macro) 0.474807  0.433223          0.041584
+Precision (weighted) 0.856966  0.854996          0.001970
+   Recall (weighted) 0.793000  0.735000          0.058000
+ F1-Score (weighted) 0.821229  0.785404          0.035825
+
+
+============================================================
+CONCLUSION
+============================================================
+
+Primary metric — Macro F1 (treats each class equally, fair for imbalanced data):
+  • VADER   : 0.4748
+  • TextBlob: 0.4332
+  → **VADER** performs better on macro F1.
+
+Secondary metric — Weighted F1 (accounts for class frequency):
+  • VADER   : 0.8212
+  • TextBlob: 0.7854
+  → **VADER** performs better on weighted F1.
+
+Accuracy — VADER: 0.7930, TextBlob: 0.7350
+Agreement — 792/1000 predictions (79.2%).
+
+Note: Amazon reviews are heavily skewed toward Positive ratings.
+Macro averaging is the more informative metric because it
+exposes how well each model handles the minority classes
+(Neutral and Negative), rather than inflating scores via
+the dominant Positive class.
+
+VADER tends to perform better on informal, short reviews with
+exclamation marks and capitalisation, while TextBlob may be
+more conservative, classifying more reviews as Neutral.
+
+Both lexicon-based models are limited by their inability to
+learn from data.  Phase #2 will explore supervised machine-learning
+models that can be trained on the labelled dataset for improved
+performance.
+
+============================================================
+ERROR ANALYSIS – MISCLASSIFIED EXAMPLES
+============================================================
+
+--- VADER ---
+Total misclassified: 207 / 1000 (20.7%)
+
+  Error breakdown (True → Predicted : count):
+    Positive → Neutral  : 95
+      • "Five Stars Exactly as described...."
+      • "Five Stars Really handy for woodworking too!..."
+      • "Five Stars These are handy to have when you do a lot of automotive installs...."
+      • "Five Stars it is what it is caution tape..."
+      • "Four Stars quality fasteners don't strip easily and the case works well..."
+    Positive → Negative : 37
+      • "Four Stars Cheap and usable. They are not fragile, but the tip design makes it hard to use...."
+      • "A must for treating rotted wood. It works and saves money Get it if you have rotted wood. It works. Then, fill in the ma..."
+      • "I used this as a mold for gelatin based "noodles" ... I used this as a mold for gelatin based "noodles". It worked well ..."
+      • "Strong, but dangerous (brittle and prone to shattering) These magnets are the strongest I have ever tried to work with, ..."
+      • "More than I expected! I thought I was only buying the RAMPS, 4 Stepsticks, and their heatsinks, but the package also inc..."
+     Neutral → Positive : 29
+      • "Found that a couple months after I put these into ... Found that a couple months after I put these into my vehicle they ..."
+      • "Poor QC. Some rolls are fine, some rolls are junk Some rolls are clearly defective -- possibly how they're stored at the..."
+      • "Watch out for the clip and magnet It's a great starter unit. The magnet and clip unfortunately is not that strong and my..."
+      • "Love - Hate relationship The things I love about this vacuum--- -The one/off is easy to find and reach -The brushes can ..."
+      • "Search around there are better products. Meh, its just ok, not sticky enough for me...."
+     Neutral → Negative : 20
+      • "Decent Not as strong as advertised..."
+      • "Works well for my homebrew spunding valve but isn't accurate. Like others have said the pressure markings are for decora..."
+      • "Tape Sucks - Not Durable - So Thin You Can See Through It - Very Light Duty - Terrible 12/1/15 UPDATE - Raising My Most ..."
+      • "Three Stars Stopped working after 2 months with new battery...."
+      • "Good solvent, annoying can Good solvent, but I really don't love the container. There's a metal inner lid that you have ..."
+    Negative → Positive : 19
+      • "Stay away from this! I will never buy again from this seller - Micca Distributor. They do not operate their business wit..."
+      • "Main Board burnt out within 2 weeks of printing.  No response from Monoprice Customer Service **UPDATE** after having 14..."
+      • "Not an easy filament, even if it's an improvement over other nylon I didn't get good lamination. Prints came out very st..."
+      • "Don't buy here. Don't buy here... very old very brittle. Will have to crank up your temps to get to work. Hatchbox is go..."
+      • "Dont Buy Poor quality inconsistent size..."
+    Negative → Neutral  : 7
+      • "After a month, it still curls up- the carpet ... After a month, it still curls up- the carpet its on does have a tight w..."
+      • "The tape itself was fine and good quality The tape itself was fine and good quality... the stupid spool this came in bas..."
+      • "Eh It isn't smaller than the tote. It fits as in bigger than necessary. Not remotely tight...."
+      • "One Star Not really stainless steel...just not right for jewelry cleaning. Sent back...."
+      • "Two Stars CAN NOT MAKE IT WORK..."
+
+
+--- TextBlob ---
+Total misclassified: 265 / 1000 (26.5%)
+
+  Error breakdown (True → Predicted : count):
+    Positive → Neutral  : 165
+      • "wow thanks i cant wait to use it i just got it a few days ago and haven't had time to use it thanks..."
+      • "Four Stars Cheap and usable. They are not fragile, but the tip design makes it hard to use...."
+      • "A must for treating rotted wood. It works and saves money Get it if you have rotted wood. It works. Then, fill in the ma..."
+      • "Five Stars Got nothing to complaint here. The quality of the product is top notch as usual...."
+      • "Five stars for sturdiness and the fact that it's not a space hog In my kitchen, we've been using an old paper shredder b..."
+     Neutral → Positive : 32
+      • "Decent Not as strong as advertised..."
+      • "Works well for my homebrew spunding valve but isn't accurate. Like others have said the pressure markings are for decora..."
+      • "Three Stars Stopped working after 2 months with new battery...."
+      • "Watch out for the clip and magnet It's a great starter unit. The magnet and clip unfortunately is not that strong and my..."
+      • "Love - Hate relationship The things I love about this vacuum--- -The one/off is easy to find and reach -The brushes can ..."
+    Negative → Neutral  : 27
+      • "Broke after 6 Months Broke after 6 months of regular use. Bought another, hoping it will last but yup this one also brok..."
+      • "One Star makes me want to curse. this thing does not work reliably, turns itself off depending on angle...."
+      • "Main Board burnt out within 2 weeks of printing.  No response from Monoprice Customer Service **UPDATE** after having 14..."
+      • "2 of 2 Units Defective - Display Issue (#1 back-light bleeding, #2 Multiple Dead Pixels) - Another example of lackluster..."
+      • "Too cheap!!! Partially tapped holes limit you to only top mounting. The wholes are not square on all blocks. Some of the..."
+    Positive → Negative : 18
+      • "They hold things down. They are staples. They hold things down...."
+      • "Dental quality inspection mirror. Dental quality inspection mirror. It's small, but as advertised .75 inches. I like it ..."
+      • "Works as advertised The product came sealed and i threw it into the bag I wanted to keep moisture out of. I think it's w..."
+      • "heavy duty heavy duty..."
+      • "Five Stars Item as expected, shipped on time!..."
+    Negative → Positive : 16
+      • "Stay away from this! I will never buy again from this seller - Micca Distributor. They do not operate their business wit..."
+      • "Not an easy filament, even if it's an improvement over other nylon I didn't get good lamination. Prints came out very st..."
+      • "Don't buy here. Don't buy here... very old very brittle. Will have to crank up your temps to get to work. Hatchbox is go..."
+      • "They work, mostly, sort-of. Count on 50% of the bearings to be bad out of the box. Sizing is pretty consistent. I put th..."
+      • "not to happy with it not the best dose not work as good as i expected left with a blank look in my face need to work muc..."
+     Neutral → Negative : 7
+      • "Three Stars Tubing is very thin...."
+      • "Tape Sucks - Not Durable - So Thin You Can See Through It - Very Light Duty - Terrible 12/1/15 UPDATE - Raising My Most ..."
+      • "skeptical accuracy Not sure the humidity detector is working....it has registered the same humidity, 16%, everyday for t..."
+      • "Not "titanium" and Battery Issues The caliper functions after using an SR43 battery rather than the SR44 size that it ca..."
+      • "Be careful. The glass does not fit to the ... Be careful. The glass does not fit to the bottom of the base and gets sque..."
+
+============================================================
+COMMON FAILURE PATTERNS
+============================================================
+  • Sarcasm / irony — lexicons take words at face value.
+  • Mixed sentiment — 'Great product but shipping was awful.'
+  • Short / vague reviews — too little text for reliable scoring.
+  • Neutral reviews misclassified — hardest class for both models
+    because neutral language overlaps with weak positive/negative.

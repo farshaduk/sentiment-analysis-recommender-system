@@ -1,0 +1,7 @@
+cd Phase#1
+python -m pip install -r requirements.txt
+python main.py
+
+cd Phase#2
+python -m pip install -r requirements_phase2.txt
+python main_phase2.py

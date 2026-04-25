@@ -1,0 +1,29 @@
+======================================================================
+STEP 15 - RECOMMENDER SYSTEM RESULTS AND CONCLUSION
+======================================================================
+
+Strategy: Sentiment-Enhanced Item-Based Collaborative Filtering
+
+Pseudo-code:
+  sentiment_score  = (vader_compound + 1) / 2
+  normalised_star  = (star_rating - 1) / 4
+  enhanced_0_1     = 0.6 x norm_star + 0.4 x sentiment_score
+  enhanced_rating  = enhanced_0_1 x 4 + 1
+  item_similarity  = cosine(user-item matrix columns)
+  predicted_rating = Sum(sim[i,j] x rating[j]) / Sum(sim[i,j])
+
+Results:
+  Original ratings CF   - MAE : 0.2445  RMSE : 0.7076
+  Enhanced ratings CF   - MAE : 0.2282  RMSE : 0.5316
+  MAE  improvement      : +6.7%
+  RMSE improvement      : +24.9%
+
+Conclusion:
+  Blending the explicit star rating with the VADER sentiment
+  score narrows the semantic gap in sparse rating matrices.
+  The enhanced ratings provide a smoother, more nuanced signal
+  for collaborative filtering, particularly for controversial
+  products where user opinions are polarised.  Even a modest
+  reduction in MAE/RMSE translates to meaningfully better
+  recommendations for users in the 'cold-start' region.
+======================================================================

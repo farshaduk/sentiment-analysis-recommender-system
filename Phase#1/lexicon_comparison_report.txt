@@ -1,0 +1,103 @@
+================================================================================
+LEXICON PACKAGES COMPARISON REPORT
+Team #4 – Industrial and Scientific Dataset
+================================================================================
+
+1. VADER (Valence Aware Dictionary and Sentiment Reasoner)
+------------------------------------------------------------
+Strengths:
+  • Designed for social-media / informal text (product reviews)
+  • Handles CAPITALISATION as emphasis
+  • Handles punctuation emphasis (e.g. 'great!!!')
+  • Handles degree modifiers ('very', 'extremely')
+  • Handles conjunctions & negation ('but', 'not good')
+  • Very fast — no heavy NLP pipeline required
+  • Provides a compound score that aggregates all cues
+Weaknesses:
+  • May under-perform on formal / technical text
+  • Rule-based — cannot be fine-tuned on domain data
+
+2. TextBlob
+------------------------------------------------------------
+Strengths:
+  • Simple API — polarity + subjectivity in one call
+  • Good general-purpose sentiment analyser
+  • Subjectivity score can help filter factual reviews
+  • Built on Pattern library with proven accuracy
+Weaknesses:
+  • Less sophisticated handling of informal language
+  • No explicit handling of capitalisation / punctuation emphasis
+
+3. SentiWordNet
+------------------------------------------------------------
+Strengths:
+  • Based on WordNet — semantic relationships available
+  • Separate positive / negative / objectivity scores
+  • Useful for word-level sentiment inspection
+Weaknesses:
+  • Requires heavy preprocessing (tokenise, POS-tag, lemmatise)
+  • Significantly slower than VADER and TextBlob
+  • First-synset heuristic may miss correct sense
+  • Does not handle negation or degree modifiers
+
+================================================================================
+SAMPLE COMPARISON RESULTS
+================================================================================
+ id                                                                                text vader_label  vader_compound tb_label  tb_polarity swn_label  swn_score
+  0 This worked really well for what I used it for. So for my purposes it is getting...    Positive          0.2952 Positive     0.300000   Neutral     0.0341
+  1                                                    Fast cutting and good adheasive.    Positive          0.3400  Neutral     0.100000  Positive     0.2500
+  2 Worked great for my lapping bench. I would like it if the adhesive were backed w...    Positive          0.5187 Positive     0.525000   Neutral    -0.0057
+  3                                                                       As advertised     Neutral          0.0000  Neutral     0.000000   Neutral     0.0000
+  4 seems like a pretty good value as opposed to buying it at the big box stores by ...    Positive          0.8750 Positive     0.316667   Neutral     0.0795
+  5                                                                        Good Product    Positive          0.4404 Positive     0.700000  Positive     0.3750
+  6 This stuff is great. Adhesive on the back and you can place a strip on a superio...    Positive          0.9153 Positive     0.241667   Neutral     0.0688
+  7                                  strap and lap it with this roll and keep on moving     Neutral          0.0000  Neutral     0.000000   Neutral     0.0000
+  8                                                   Works great on speed bloc sander.    Positive          0.6249 Positive     0.800000   Neutral     0.0000
+  9 Only used a small amount ot the paper but it works with the porter cable profile...     Neutral          0.0000 Negative    -0.125000   Neutral    -0.0417
+ 10 Absolutely love this and my "old" Porter Cable 330!! I also use this product on ...    Positive          0.7489 Positive     0.328125  Positive     0.1705
+ 11 This stuff is great. Adhesive on the back and you can place a strip on a superio...    Positive          0.9153 Positive     0.241667   Neutral     0.0688
+ 12 I cut off little pieces and stick them to a piece of hard board, and use them to...    Positive          0.7391  Neutral     0.026042   Neutral     0.0250
+ 13 As a hobbyist, I frequently need to sand the surfaces of the items I create. Bei...    Positive          0.8122 Positive     0.470000   Neutral     0.0054
+ 14 Good product. I stick a length to my workbench where I carve and use my Dremel. ...    Negative         -0.1027 Positive     0.300000   Neutral    -0.0500
+ 15           This product is amazing! It works perfectly and exceeded my expectations.    Positive          0.8516 Positive     0.875000  Positive     0.1250
+ 16             The item arrived broken and the quality is terrible. Very disappointed.    Negative         -0.8622 Negative    -0.791667  Negative    -0.1458
+ 17                          It's okay, nothing special. Does what it's supposed to do.    Negative         -0.0920 Positive     0.428571   Neutral     0.0938
+ 18                                      GREAT product!!! Highly recommend to everyone!    Positive          0.8688 Positive     0.600000  Positive     0.1250
+ 19                       Not bad, but could be better. The price is reasonable though.    Positive          0.6980 Positive     0.350000   Neutral     0.0625
+
+================================================================================
+AGREEMENT ANALYSIS
+================================================================================
+  VADER – TextBlob      : 15/20 (75.0%)
+  VADER – SentiWordNet  : 9/20 (45.0%)
+  TextBlob – SentiWordNet: 8/20 (40.0%)
+
+================================================================================
+EXECUTION TIME (seconds for all sample texts)
+================================================================================
+  VADER          : 0.0010 s
+  TextBlob       : 0.0023 s
+  SentiWordNet   : 0.0128 s
+
+================================================================================
+RECOMMENDATION  (selected for model building)
+================================================================================
+
+For Amazon product reviews (Industrial & Scientific), we select:
+
+  ★ VADER
+    – Product reviews contain informal language, emphasis (!!!),
+      capitalisation, and modifiers that VADER is specifically built for.
+    – Fastest execution — practical for larger datasets.
+    – Requires minimal preprocessing, preserving original text signals.
+
+  ★ TextBlob
+    – Provides a reliable second opinion with a different methodology.
+    – Subjectivity score adds an extra dimension for analysis.
+    – Good balance between accuracy and simplicity.
+
+  ✗ SentiWordNet  (not selected)
+    – Requires heavy NLP preprocessing which can remove sentiment cues.
+    – Significantly slower — impractical at scale.
+    – Word-sense disambiguation (first-synset heuristic) is unreliable
+      on informal product reviews.

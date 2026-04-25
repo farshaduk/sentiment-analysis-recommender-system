@@ -1,0 +1,93 @@
+Phase #2 - LLM Results Report
+Team #4: Industrial and Scientific Dataset
+======================================================================
+
+STEP 16 - Review Summarisation (first two results)
+======================================================================
+Model used: sshleifer/distilbart-cnn-12-6
+
+Result 1:
+  Product ASIN : B000DZBHLI
+  Star rating  : 4.0
+  Original review (120 words):
+    As another reviewer mentioned I don't think theres any difference in
+    which Goop you buy other than the packaging that encourages folks
+    to buy it for the specific purpose stated. I use it for everything
+    from shoe repair to the leather seats in my SUV and it has never
+    disappointed me and whether its the RV or the All Purpose I cant
+    tell the difference. The only reason I dropped off a star is that
+    it often hardens after a tube is opened even though the cap is on
+    tight. Other than that the product itself is 5-stars all the way
+    and a lot easier to use on many things than Contact Cement because
+    its forgiving in the application process.
+
+  50-word summary (38 words):
+    The only reason I dropped off a star is that it often hardens after a
+    tube is opened even though the cap is on tight . Other than that
+    the product itself is 5-stars all the way .
+
+----------------------------------------------------------------------
+
+Result 2:
+  Product ASIN : B000JKGOTW
+  Star rating  : 5.0
+  Original review (130 words):
+    These wipes are true to their name in that they do not shred or leave
+    lint traces.  I use these for rubbing oil into wood and they work
+    better than other towels or wipes because of how clean they leave
+    the surface.  Before these, unless I used microfiber towels, I
+    always ended up with some lint.  Microfiber towels are expensive
+    and even those break down over time and start leaving a mess.  So
+    for me, these are a great choice.  These are not very absorbent;
+    they work well for cleaning a surface, but don't expect them to
+    soak in a bunch of liquid for you.  And they are permeable so you
+    still need to wear gloves, but for a tough wipe that won't leave
+    residue, these are a great choice.
+
+  50-word summary (35 words):
+    These wipes are true to their name in that they do not shred or leave
+    lint traces . They work better than other towels or wipes because
+    of how clean they leave the surface .
+
+----------------------------------------------------------------------
+
+
+STEP 17 - Automatic CSR Response Generation
+======================================================================
+Model used: google/flan-t5-large
+
+Product ASIN : B00006IC2O
+Star rating  : 5.0
+
+Customer Review:
+  I've found all kinds of uses for this: It's strong enough to hold up a
+  3'x2' corkboard , a paper towel holder , surround-sound speakers,
+  not to mention art and other light wall-hangings. Sure, most of
+  those things could be more easily attached by drilling holes in the
+  walls, but I live in an apartment with a please-don't-put-holes-in-
+  the-wall clause in my lease. I'm sure I'm not the only one. With
+  this super-sticky stuff, I can easily attach (and detach) those
+  items without causing any damage to the walls. No other two-sided
+  tape I've seen (even the 3M Command strips , which are great for
+  posters) is this powerful. That mounted items can be so easily
+  adjusted and removed on-the-fly is a huge plus. This is an extremely
+  versatile, useful and inexpensive product. [Update: At the time I
+  posted this review, I hadn't yet removed any of the adhesive strips
+  from the walls. When I did, the adhesive pulled much of the paint
+  off. So be warned that this is very strong adhesive; it's not wall-
+  friendly like the 3M Command products. You'll have to repaint your
+  walls after using these strips on them.]
+
+CSR Response:
+  Dear Customer, thank you for taking the time to share your experience
+  with product B00006IC2O. We sincerely apologize for the issue you
+  described: This is a very strong adhesive. It's not wall-friendly
+  like the 3M Command products. You'll have to repaint your walls
+  after using these strips on them. We understand how frustrating this
+  must be, especially since you expected better performance from our
+  product. If you're looking for a wall-friendly adhesive, look for 3M
+  Command products. Please reply to this message or contact our
+  support team with your order number, and we will process this right
+  away. We value your feedback and are committed to making this right.
+
+======================================================================

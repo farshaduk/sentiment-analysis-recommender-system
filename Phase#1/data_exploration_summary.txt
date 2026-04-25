@@ -1,0 +1,152 @@
+DATA EXPLORATION SUMMARY
+Team #4: Industrial and Scientific Dataset
+================================================================================
+
+
+============================================================
+BASIC_COUNTS
+============================================================
+  total_reviews: 77071
+  total_columns: 12
+  column_names: ['overall', 'verified', 'reviewTime', 'reviewerID', 'asin', 'style', 'reviewerName', 'reviewText', 'summary', 'unixReviewTime', 'vote', 'image']
+  unique_products: 5334
+  unique_users: 11041
+  average_rating: 4.5241
+  median_rating: 5.0
+  std_rating: 0.9497
+  rating_distribution: {1.0: 2482, 2.0: 1936, 3.0: 4442, 4.0: 12061, 5.0: 56150}
+  avg_review_chars: 241.02
+  median_review_chars: 95.0
+  avg_word_count: 44.17
+  median_word_count: 18.0
+  avg_summary_chars: 24.04
+
+
+============================================================
+MISSING_VALUES
+============================================================
+                Missing      %
+image             75352  97.77
+vote              67451  87.52
+style             41034  53.24
+reviewerName         27   0.04
+reviewText           11   0.01
+summary              10   0.01
+overall               0   0.00
+reviewerID            0   0.00
+asin                  0   0.00
+verified              0   0.00
+reviewTime            0   0.00
+unixReviewTime        0   0.00
+review_length         0   0.00
+word_count            0   0.00
+summary_length        0   0.00
+
+
+============================================================
+RATING_DISTRIBUTION
+============================================================
+  overall
+1.0     2482
+2.0     1936
+3.0     4442
+4.0    12061
+5.0    56150
+Name: count, dtype: int64
+  overall
+1.0     3.22
+2.0     2.51
+3.0     5.76
+4.0    15.65
+5.0    72.85
+Name: count, dtype: float64
+
+
+============================================================
+REVIEWS_PER_PRODUCT
+============================================================
+  {'total_products': 5334, 'min': 1, 'max': 1229, 'mean': np.float64(14.45), 'median': 8.0, 'std': np.float64(28.81), 'products_1_review': 22, 'products_5plus': 5117}
+  asin
+B0000223SI    13
+B0000223SK    22
+B0000223UV    37
+B00002246J    16
+B0000224J0    15
+              ..
+B01HCQSHNG     7
+B01HCVJ3K2    24
+B01HDXZR5E    17
+B01HDYEAOW     5
+B01HEQVQAK     9
+Length: 5334, dtype: int64
+
+
+============================================================
+REVIEWS_PER_USER
+============================================================
+  {'total_users': 11041, 'min': 2, 'max': 99, 'mean': np.float64(6.98), 'median': 6.0, 'std': np.float64(3.47), 'users_1_review': 0, 'users_10plus': 1385}
+  reviewerID
+A0096681Y127OL1H8W3U     5
+A0196552RI15HI7JB9PW     5
+A0289048PRWFY7ZXQKCD     9
+A0455940O5EUXQDU46QL     7
+A07936821FOVJO6NP4Q8    10
+                        ..
+AZXS6P5QWNMLC            6
+AZY0M1ANDSEPL            5
+AZYIBG912W011            7
+AZYPAWSYSCISH           11
+AZZGB87A5N9QI            5
+Length: 11041, dtype: int64
+
+
+============================================================
+REVIEW_LENGTHS
+============================================================
+  {'mean_words': np.float64(44.17), 'median_words': 18.0, 'std_words': np.float64(100.09), 'min_words': 0, 'max_words': 5966, 'mean_chars': np.float64(241.02), 'p25': 5.0, 'p75': 46.0, 'p95': 166.0, 'p99': 408.3000000000029}
+         overall  verified   reviewTime      reviewerID        asin  ...                                              image review_length word_count summary_length  char_count
+31         5.0      True   07 8, 2013  A23AKO4BZLZ8DE  B0000223SI  ...                                                NaN           867        167             18         867
+34         5.0     False  04 27, 2003  A2013JDMPUV6D9  B0000223UV  ...                                                NaN           856        149             29         856
+54         5.0     False  08 10, 2015  A1JZFGZEZVWQPY  B0000223UV  ...                                                NaN          3797        730             30        3797
+55         5.0     False  05 17, 2015   AMTFOMD0F4KZQ  B0000223UV  ...                                                NaN           995        211             51         995
+63         4.0     False  09 20, 2013  A22Z554ZQ8NFPC  B0000223UV  ...                                                NaN          2323        447             16        2323
+...        ...       ...          ...             ...         ...  ...                                                ...           ...        ...            ...         ...
+77031      3.0      True   08 4, 2017  A2SPB8LKWZM95M  B01H35YR7Q  ...                                                NaN          1016        168             72        1016
+77041      5.0      True   06 9, 2017  A1SEWFXOP5UCFL  B01H3JGSUQ  ...  [https://images-na.ssl-images-amazon.com/image...           631        116             25         631
+77043      5.0      True  09 28, 2018  A2U1SYP4XCIUIK  B01H3JGYYG  ...  [https://images-na.ssl-images-amazon.com/image...          1076        199             85        1076
+77046      5.0     False  07 18, 2016  A3DPPQ9997ANAM  B01H3JGYYG  ...                                                NaN           781        132             50         781
+77058      4.0      True  07 24, 2018  A1ULAK07F5JBUO  B01HBPHSII  ...                                                NaN          1524        277             55        1524
+
+[7330 rows x 16 columns]
+
+
+============================================================
+RATING_VS_LENGTH
+============================================================
+          mean  median     std  count
+overall                              
+1.0      74.65    42.0  113.17   2482
+2.0      81.07    43.0  154.07   1936
+3.0      63.67    31.0  119.14   4442
+4.0      55.65    22.0  120.03  12061
+5.0      37.54    14.0   89.22  56150
+
+
+============================================================
+SUMMARY_ANALYSIS
+============================================================
+  mean_words: 4.41
+  median_words: 3.0
+  max_words: 30
+  min_words: 0
+  empty: 10
+
+
+============================================================
+DUPLICATES
+============================================================
+  dup_text_rows: 25507
+  dup_text_unique: 6766
+  dup_reviewer_product: 9552
+  fully_duplicate_rows: 8454
+

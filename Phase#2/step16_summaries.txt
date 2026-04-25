@@ -1,0 +1,263 @@
+Phase #2 - Step 16: Review Summaries
+Model: sshleifer/distilbart-cnn-12-6
+======================================================================
+
+Review 1
+Product ASIN : B000DZBHLI
+Star rating  : 4.0
+Original (120 words):
+  As another reviewer mentioned I don't think theres any difference in
+  which Goop you buy other than the packaging that encourages folks to buy
+  it for the specific purpose stated. I use it for everything from shoe
+  repair to the leather seats in my SUV and it has never disappointed me
+  and whether its the RV or the All Purpose I cant tell the difference. The
+  only reason I dropped off a star is that it often hardens after a tube is
+  opened even though the cap is on tight. Other than that the product
+  itself is 5-stars all the way and a lot easier to use on many things than
+  Contact Cement because its forgiving in the application process.
+
+Summary (38 words):
+  The only reason I dropped off a star is that it often hardens after a
+  tube is opened even though the cap is on tight . Other than that the
+  product itself is 5-stars all the way .
+----------------------------------------------------------------------
+
+Review 2
+Product ASIN : B000JKGOTW
+Star rating  : 5.0
+Original (130 words):
+  These wipes are true to their name in that they do not shred or leave
+  lint traces.  I use these for rubbing oil into wood and they work better
+  than other towels or wipes because of how clean they leave the surface.
+  Before these, unless I used microfiber towels, I always ended up with
+  some lint.  Microfiber towels are expensive and even those break down
+  over time and start leaving a mess.  So for me, these are a great choice.
+  These are not very absorbent; they work well for cleaning a surface, but
+  don't expect them to soak in a bunch of liquid for you.  And they are
+  permeable so you still need to wear gloves, but for a tough wipe that
+  won't leave residue, these are a great choice.
+
+Summary (35 words):
+  These wipes are true to their name in that they do not shred or leave
+  lint traces . They work better than other towels or wipes because of how
+  clean they leave the surface .
+----------------------------------------------------------------------
+
+Review 3
+Product ASIN : B0002EQU6C
+Star rating  : 4.0
+Original (132 words):
+  Works very well, but it's not necessarily "the best".  If you want your
+  stuff to last as long as possible, use a long-lasting thermal compound
+  such as Arctic MX-4.  Most thermal compounds last 2-3 years before
+  breaking down.  ArcticSilver claims 8 years for MX-4.  No lifespan is
+  given for ArcticSilver 5.  In my experience, a vendor will avoid
+  mentioning product specs which don't make their product look superior.
+  Many people say ArcticSilver 5 is best.  But what does "best" really
+  mean?  Some people change their compound every year or two.  I'd rather
+  have something slightly less efficient which lasts a long time.  My
+  MacBook Pro (from 2011) is a real pain to change the compound.  But even
+  on computers where the compound is "easy" to replace, I'd rather not have
+  to bother.
+
+Summary (27 words):
+  Most thermal compounds last 2-3 years before breaking down . If you want
+  your stuff to last as long as possible, use a long-lasting thermal
+  compound .
+----------------------------------------------------------------------
+
+Review 4
+Product ASIN : B000ILG0E6
+Star rating  : 5.0
+Original (116 words):
+  I looked thru the feedback on this item, and some complained that it was
+  received scratched, or smaller than advertised. Mine was about 1/8" short
+  on length and width, and yes, it did have a few small scratches on one
+  side.  But I gave 5 stars because:  1) the edges are straight, and the
+  corners are precisely cut to 90 degrees 2) the scratches (for my use) are
+  minor, and the opposite side has a 'PEEL-OFF' protective cover, which
+  should provide one perfect side 3) it was MUCH CHEAPER by far than the
+  others 4) the company shipped the order immediately: it was the first
+  item from my order to arrive by three days  Thank you.
+
+Summary (29 words):
+  The edges are straight, and the corners are precisely cut to 90 degrees .
+  The opposite side has a 'PEEL-off' protective cover, which should provide
+  one perfect side .
+----------------------------------------------------------------------
+
+Review 5
+Product ASIN : B0000DD1EE
+Star rating  : 3.0
+Original (288 words):
+  These are not the best you can buy: but they do not cost what the best
+  costs either. They are made in China so in some ways lack real serious
+  quality. Even so, if you have a light load, and not extra heavy use,
+  these will serve you well.  The brake seems to work well too. So far I
+  have been satisfies enough to buy a second batch of them.  I bought them
+  twice, and my current use under my work bench is doing well.  These are
+  well worth the price. UPDATE: What I said above has been tested now. Part
+  1:  I built a 200# 4ft. X 8ft. plywood work table and installed 6 of
+  these assemblies to make it light and easy to roll.  Loaded it is about
+  250 to 300# max.  The wheels can't handle it well at all.  The problem is
+  not the wheel itself, it is the chincy metal materials they used.  Soft,
+  flexible, and bends rather than turn on the rollers, even on a flat new
+  cement floor.  Sad. Data: 300# by 6 rollers = ~ 50 # each loading....
+  pretty over rated huh?! Part 2:  I made a small cabinet for the Sander I
+  bought on Amazon, and I used 4 rollers to ease the locating of the tool
+  in my shop.  Weighs total about 100# with the sander: works perfectly.
+  DATA: 100# by 4 wheels = 25# per wheel.  Obviously, typical China
+  Junk.... very overrated.  Listed to handle 220# loads each, and at 50#
+  each they begin to fail.  Derate them by about 400% and you are just
+  about right.  If you must have 50# or more on them the metal is just
+  tooooo soft & cheap.  Otherwise, just great.
+
+Summary (33 words):
+  These are not the best you can buy: but they do not cost what the best
+  costs either . They are made in China so in some ways lack real serious
+  quality .
+----------------------------------------------------------------------
+
+Review 6
+Product ASIN : B000FEM392
+Star rating  : 3.0
+Original (183 words):
+  The product works well enough to listen to the heart and lungs on a
+  adult.  If you're actually going to school to be a CNA or even a nurse.
+  Well really any medical profession.  Hopefully your teachers told you,
+  you have to spend a little money on your medical supplies and equipment.
+  This is not for a professional.  It's more of a novelty item something
+  the average person can use to listen to their own heart, but has little
+  real life application for a medical professionals.  The ear buds are very
+  uncomfortable it does come with several additional parts you can change
+  out.  And it's a good price for someone who's buying it as a novelty.  I
+  would not buy it again, but I just needed something cheap to listen for a
+  possible heart condition.  So I knew what I was getting before I bought
+  it, and it works for my purpose.  However it is not a toy serious damage
+  to a child's ear drums can result from them using this as a toy.  So keep
+  it out of reach of children's hands.
+
+Summary (39 words):
+  The product works well enough to listen to the heart and lungs on a adult
+  . However it is not a toy serious damage to a child's ear drums can
+  result from them using this as a toy .
+----------------------------------------------------------------------
+
+Review 7
+Product ASIN : B000JKGOTW
+Star rating  : 5.0
+Original (178 words):
+  These are just about the perfect cleaning wipes. It isn't hard to find
+  something to use as a wipe, but it is almost impossible to find wipes for
+  certain kinds of surfaces. I have been able to use these both to clean
+  glass surfaces and on LED screens. To be honest, I don't know if the
+  latter is recommended, but the wipe I used appeared to do a great job on
+  my computer screen, laptop screen, and even the screen of my flatscreen
+  television.  What makes these so remarkable is the complete absence of
+  lint of any kind. I haven't been able to detect any particulate matter
+  whatsoever. Contrast this with bathroom tissue, which leaves tiny but
+  numerous little specks behind when you use them.  These are not cheap for
+  household users, but a package used strategically could last a very long
+  time and help in cleaning surfaces that might otherwise represent a
+  challenge in cleaning. I highly recommend this in cleaning those more
+  difficult smudges you see on TVs, marble surfaces, glass, computer
+  screens, and the like.
+
+Summary (28 words):
+  These are just about the perfect cleaning wipes for certain kinds of
+  surfaces . They are not cheap for users, but could last for a long time .
+----------------------------------------------------------------------
+
+Review 8
+Product ASIN : B00005JRLF
+Star rating  : 4.0
+Original (139 words):
+  The nails and carrier are of expected good quality. I do have a problem
+  where consistently the last 3 nails in the carrier cause a nail gun jam.
+  I am not sure if it is the fault of the nail gun or the nails. I am a new
+  user of a framing nailer and have been through a box of these nails and
+  every last strip fired great except for the last 3 nails on each strip.
+  Being a new user this is my first framing nailer and first time using
+  these nails. Love 'em until the last three :) but no idea if my issue is
+  nail supply or nail gun related. I suppose I will try different nails
+  next time to see if the same thing occurs and if so, then the nail gun is
+  the issue.
+
+Summary (46 words):
+  The nails and carrier are of expected good quality . I have a problem
+  where consistently the last 3 nails in the carrier cause a nail gun jam .
+  I am not sure if it is the fault of the nail gun or the nails .
+----------------------------------------------------------------------
+
+Review 9
+Product ASIN : B000234ITO
+Star rating  : 5.0
+Original (433 words):
+  This is a good bottle jack - it does the job it advertises.  I have two
+  other Torin bottle jacks, and knew what to expect.  I was going to buy a
+  second 12 ton Torin jack, but when I saw this one temporarily drop to
+  $29.99, free shipping, I bought this one instead.  Note that these Torin
+  jacks look a lot like jacks sold under other badges / names, and that is
+  because many are made in the same factory and sold under different
+  names....  I use this to jack up my RV (which is 16K pounds), and don't
+  mind using a 20 ton to make sure I have "overkill".  When I have to work
+  under the RV without a tire on, and have the luxury of being in my
+  driveway at home, I tend to have a lot of redundancy for safety measures
+  - for instance, if I take a tire off one side, I use two bottle jacks and
+  two jack stands under the frame in various locations to make 100% sure
+  there will be no failure.  Of course, I also chock the other wheels.  I
+  don't want to trust any one, or even two, components for failure when my
+  life depends on it.  When I am travelling, to save on weight and
+  portability, I only carry the 12 ton with jack stands, and carry a block
+  of wood or two for stability of the jack in case I am on gravel, dirt,
+  etc.  I am extra careful until I get a jack stand or two under it on the
+  road, I don't have the luxury of concrete, multiple jacks on the
+  road..... but it is still enough.  One thing to be careful of on these
+  Torin jacks (and other bottle jacks) - the pressure release screw on the
+  bottom - it does not have a "stop" when you unscrew it, and it will allow
+  you to keep turning it until hydraulic fluid comes leaking out.  I know
+  because when I asked my son to release the pressure and lower the jack, I
+  looked over and saw he over loosened the nut on the bottom, and fluid was
+  leaking out.  So be aware that it only needs a couple of turns to release
+  pressure, and it can be "over-loosened" to where fluid will leak.  One
+  thing that could be improved - a longer handle to jack up the car - the
+  current handle is very short and Torin could provide an extra length or
+  two so you don't have to reach under the car to jack it up.  Thanks for
+  reading.
+
+Summary (50 words):
+  This is a good bottle jack - it does the job it advertises . It does not
+  have a "stop" when you unscrew it, and it will allow you to keep turning
+  it until hydraulic fluid comes leaking out . One thing to be careful of
+  on these Torin jacks
+----------------------------------------------------------------------
+
+Review 10
+Product ASIN : B000BQO15I
+Star rating  : 4.0
+Original (207 words):
+  After my share of owning a plastic gas container and seeing it swelled up
+  like a balloon (ready to burst?), I opted for a metal gas can.  I decided
+  on this Eagle product based on the positive reviews.  It is well built.
+  It doesn't leak gasoline vapor after you filled it.  Mine came with
+  several dents as mentioned by other reviewers.  Amazon was kind enough to
+  send a replacement.  But guess what, even the replacement had similar
+  dents on it.  Go figure!  Another gripe I had was the difficulty of
+  filling the container at the pump.  In California, most gas station pump
+  nozzles requires a tight seal for the auto-shutoff to work.  With this
+  container, there is a metal screen just below the can's opening.  This
+  make it impossible for me to push the gas pump nozzle deep enough to get
+  that seal, so no gas can be pumped.  I finally figured out that if you
+  use a plasic funnel you can get a good seal around this and this
+  eventually allowed me pump the gas into the container.  No other
+  reviewers mentioned this problem so it must be an isolated issue.
+  Overall, this is a much better and safer container than any of those
+  plastic ones.
+
+Summary (49 words):
+  After my share of owning a plastic gas container and seeing it swelled up
+  like a balloon, I opted for a metal gas can . Mine came with several
+  dents as mentioned by other reviewers . Another gripe was the difficulty
+  of filling the container at the pump .
+----------------------------------------------------------------------
+

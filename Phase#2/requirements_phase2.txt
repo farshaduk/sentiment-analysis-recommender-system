@@ -1,0 +1,34 @@
+# Phase #2 – Additional Requirements
+# Team #4: Industrial and Scientific Dataset
+#
+# These packages are ADDED ON TOP of Phase #1 requirements.
+# Phase #1 requirements: pandas, numpy, matplotlib, seaborn,
+#                        vaderSentiment, textblob, nltk, scikit-learn,
+#                        wordcloud, tqdm
+#
+# Install all Phase #2 dependencies:
+#   pip install -r requirements_phase2.txt
+
+# ------------------------------------------------------------------ #
+# Core ML / NLP
+# ------------------------------------------------------------------ #
+scikit-learn>=1.3.0      # ML models (LR, LinearSVC, GridSearchCV)
+joblib>=1.3.0            # Model serialisation / loading
+
+# ------------------------------------------------------------------ #
+# Hugging Face (Steps 16 & 17 – LLM tasks)
+# ------------------------------------------------------------------ #
+transformers>=4.35.0     # Hugging Face Transformers (pipelines, models)
+torch>=2.0.0             # PyTorch back-end (CPU is sufficient)
+sentencepiece>=0.1.99    # Required by T5 tokeniser (FLAN-T5)
+sacremoses>=0.0.53       # Required by BART tokeniser
+
+# ------------------------------------------------------------------ #
+# Already in Phase #1 requirements (listed here for completeness)
+# ------------------------------------------------------------------ #
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+vaderSentiment>=3.3.2
+nltk>=3.8.0
