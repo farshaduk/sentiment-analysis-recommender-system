@@ -379,14 +379,6 @@ sentiment-analysis-recommender-system/
 
 <div align="center">
 
-## ✅ Final Recommendation
 
-**Use Linear SVM with TF-IDF for sentiment classification and Sentiment-Enhanced Collaborative Filtering for recommendations.**
-
-<br/>
-
-<img src="https://img.shields.io/badge/Best%20Classifier-Linear%20SVM-6C63FF?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Best%20Recommender-Sentiment--Enhanced%20CF-00C853?style=for-the-badge" />
-<img src="https://img.shields.io/badge/RMSE%20Improvement-24.9%25-FF6D00?style=for-the-badge" />
 
 </div>
