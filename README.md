@@ -16,22 +16,8 @@
 ### 🚀 From lexicon sentiment analysis to ML classification, LLM summarisation, and a sentiment-enhanced recommender system.
 
 > **Core Question:** Can we accurately predict sentiment in technical product reviews and use that signal to improve product recommendations?
-![footer](https://capsule-render.vercel.app/api?type=waving&color=0:00897B,50:6A1B9A,100:1565C0&height=120&section=footer&animation=fadeIn)</div>
----
+![footer](https://capsule-render.vercel.app/api?type=waving&color=0:00897B,50:6A1B9A,100:1565C0&height=120&section=footer&animation=fadeIn)</div>---
 
-## 📋 Table of Contents
-
-- [Overview](#-overview)
-- [Architecture](#-architecture)
-- [Dataset](#-dataset)
-- [Phase 1 — Lexicon-Based Sentiment Analysis](#-phase-1--lexicon-based-sentiment-analysis)
-- [Phase 2 — ML Models, Recommender & LLM](#-phase-2--ml-models-recommender--llm)
-- [Results at a Glance](#-results-at-a-glance)
-- [Getting Started](#-getting-started)
-- [Project Structure](#-project-structure)
-- [References](#-references)
-
----
 
 ## 🌐 Overview
 
