@@ -473,46 +473,44 @@ sentiment-analysis-recommender-system/
 
 ## 🌐 Overview
 
-This project builds an end-to-end NLP pipeline on **77,071 Amazon product reviews** from the *Industrial and Scientific* category. It progresses through two phases:
+This project builds an end-to-end NLP pipeline using **77,071 Amazon product reviews** from the **Industrial and Scientific** category.
+
+The project is divided into two phases:
 
 | Phase | Focus | Key Techniques |
-|-------|-------|---------------|
+|---|---|---|
 | **Phase 1** | Lexicon-based sentiment analysis | VADER, TextBlob, stratified sampling |
-| **Phase 2** | ML models, recommender & LLM tasks | TF-IDF + LR/SVM, collaborative filtering, FLAN-T5, BART |
-
-The core question being answered throughout:
-> *Can we accurately predict the sentiment in technical product reviews — and use that sentiment signal to build better product recommendations?*
+| **Phase 2** | ML models, recommender system, and LLM tasks | TF-IDF, LR, Linear SVM, collaborative filtering, BART, FLAN-T5 |
 
 ---
 
 ## 🏗️ Architecture
 
-```
-Raw Amazon Reviews (JSON)
-        │
-        ▼
-┌───────────────────────────────────────────────────────────────────┐
-│                         PHASE 1                                   │
-│                                                                   │
-│  ┌──────────────┐   ┌─────────────────┐   ┌──────────────────┐   │
-│  │    Data      │──▶│  Pre-processing  │──▶│ Lexicon Analysis │   │
-│  │ Exploration  │   │  (clean, label,  │   │ VADER vs TextBlob│   │
-│  │ (77K reviews)│   │  sample 1,000)   │   │                  │   │
-│  └──────────────┘   └─────────────────┘   └──────────────────┘   │
-│                                                    │              │
-│                               sentiment_analysis_results.csv ◀───┘
-└───────────────────────────────────────────────────────────────────┘
-        │
-        ▼
-┌───────────────────────────────────────────────────────────────────┐
-│                         PHASE 2                                   │
-│                                                                   │
-│  ┌────────────┐   ┌─────────────────┐   ┌──────────────────────┐ │
-│  │ ML Models  │   │  Recommender    │   │   LLM Tasks          │ │
-│  │ TF-IDF +   │   │  Sentiment-     │   │   Review Summariser  │ │
-│  │ LR / SVM   │   │  Enhanced CF    │   │   CSR Response Gen   │ │
-│  └────────────┘   └─────────────────┘   └──────────────────────┘ │
-└───────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    A[📦 Raw Amazon Reviews<br/>JSON / JSON.GZ] --> B[🔎 Data Exploration<br/>77,071 Reviews]
+    B --> C[🧹 Pre-processing<br/>Clean · Label · Sample]
+    C --> D[📘 Phase 1<br/>Lexicon Sentiment Analysis]
+    D --> E1[⚡ VADER]
+    D --> E2[💬 TextBlob]
+    E1 --> F[📄 sentiment_analysis_results.csv]
+    E2 --> F
+
+    F --> G[📗 Phase 2]
+    G --> H[🤖 ML Classification<br/>TF-IDF + LR/SVM]
+    G --> I[🛒 Sentiment-Enhanced<br/>Collaborative Filtering]
+    G --> J[📝 LLM Tasks<br/>Summariser + CSR Response]
+
+    H --> K[🏆 Linear SVM Best Model]
+    I --> L[📉 RMSE Improved by 24.9%]
+    J --> M[🤗 BART + FLAN-T5 Outputs]
+
+    style A fill:#E3F2FD,stroke:#1565C0,stroke-width:2px
+    style D fill:#FFF3E0,stroke:#EF6C00,stroke-width:2px
+    style G fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px
+    style K fill:#F3E5F5,stroke:#6A1B9A,stroke-width:2px
+    style L fill:#F3E5F5,stroke:#6A1B9A,stroke-width:2px
+    style M fill:#F3E5F5,stroke:#6A1B9A,stroke-width:2px
 ```
 
 ---
@@ -520,195 +518,202 @@ Raw Amazon Reviews (JSON)
 ## 📦 Dataset
 
 | Attribute | Value |
-|-----------|-------|
-| **Source** | Amazon Product Reviews – Industrial & Scientific |
-| **Total Reviews** | 77,071 |
-| **Unique Products** | 5,334 |
-| **Unique Users** | 11,041 |
-| **Average Rating** | 4.52 / 5 ⭐ |
-| **Average Review Length** | 241 characters · 44 words |
+|---|---:|
+| **Source** | Amazon Product Reviews — Industrial & Scientific |
+| **Total Reviews** | **77,071** |
+| **Unique Products** | **5,334** |
+| **Unique Users** | **11,041** |
+| **Average Rating** | **4.52 / 5 ⭐** |
+| **Average Review Length** | **241 characters · 44 words** |
 
-### Rating Distribution
+### ⭐ Rating Distribution
 
-```
-⭐⭐⭐⭐⭐  56,150  ████████████████████████████████░░  72.9%
-⭐⭐⭐⭐    12,061  ███████░░░░░░░░░░░░░░░░░░░░░░░░░░  15.6%
-⭐⭐⭐      4,442  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   5.8%
-⭐⭐        1,936  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   2.5%
-⭐          2,482  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   3.2%
-```
+| Rating | Count | Percentage | Visual |
+|---|---:|---:|---|
+| ⭐⭐⭐⭐⭐ | 56,150 | 72.9% | ████████████████████████████████░░ |
+| ⭐⭐⭐⭐ | 12,061 | 15.6% | ███████░░░░░░░░░░░░░░░░░░░░░░░░░░ |
+| ⭐⭐⭐ | 4,442 | 5.8% | ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ |
+| ⭐⭐ | 1,936 | 2.5% | █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ |
+| ⭐ | 2,482 | 3.2% | █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ |
 
-> ⚠️ **Class imbalance note:** The dataset is heavily skewed toward 5-star reviews (72.9%), which makes macro-averaged F1 the primary evaluation metric throughout the project — it treats each sentiment class equally regardless of frequency.
-
-**Citation:**
-> Ni, J., Li, J., & McAuley, J. (2019). *Justifying recommendations using distantly-labeled reviews and fine-grained aspects.* EMNLP-IJCNLP 2019. https://nijianmo.github.io/amazon/index.html
+> ⚠️ **Class Imbalance Note:** The dataset is heavily skewed toward 5-star reviews. Because of this, **Macro F1** is used as the main evaluation metric because it treats each sentiment class equally.
 
 ---
 
 ## 📘 Phase 1 — Lexicon-Based Sentiment Analysis
 
-Phase 1 builds a full NLP pipeline from raw data to a validated lexicon comparison.
+Phase 1 builds a complete sentiment-analysis pipeline using lexicon-based methods.
 
-### Step-by-Step Pipeline
+### 🔄 Phase 1 Pipeline
 
+```mermaid
+flowchart LR
+    A[Step 1<br/>Data Exploration] --> B[Step 2<br/>Pre-processing]
+    B --> C[Step 3<br/>Lexicon Study]
+    C --> D[Step 4<br/>Apply VADER + TextBlob]
+    D --> E[Step 5<br/>Stratified Sampling]
+    E --> F[Step 6<br/>Build Classifiers]
+    F --> G[Step 7<br/>Compare Results]
+
+    style A fill:#E3F2FD,stroke:#1976D2
+    style B fill:#E8F5E9,stroke:#388E3C
+    style C fill:#FFF8E1,stroke:#F9A825
+    style D fill:#FCE4EC,stroke:#C2185B
+    style E fill:#EDE7F6,stroke:#512DA8
+    style F fill:#E0F2F1,stroke:#00796B
+    style G fill:#FFF3E0,stroke:#EF6C00
 ```
-Step 1  →  Data Exploration        Understand structure, distributions, missing values
-Step 2  →  Pre-processing          Label sentiment, remove outliers, clean text
-Step 3  →  Lexicon Study           Deep-dive into VADER vs TextBlob design
-Step 4  →  Apply Lexicons          Score all reviews with both VADER and TextBlob
-Step 5  →  Stratified Sampling     Select 1,000 balanced reviews for evaluation
-Step 6  →  Build Models            Threshold-based classifiers using lexicon scores
-Step 7  →  Compare & Report        Accuracy, Precision, Recall, F1 comparison table
-```
 
-### Pre-processing Details
+### 🧹 Pre-processing Details
 
 | Operation | Description |
-|-----------|-------------|
+|---|---|
 | **Sentiment labelling** | 1–2 stars → Negative · 3 stars → Neutral · 4–5 stars → Positive |
 | **Column selection** | `reviewText`, `summary`, `overall`, `reviewerID`, `asin` |
-| **Outlier removal** | Reviews with < 3 or > 2,000 words removed |
+| **Outlier removal** | Removed reviews with fewer than 3 words or more than 2,000 words |
 | **Text cleaning** | Lowercase, URL removal, punctuation stripping, NLTK stopword removal |
-| **Stratified sampling** | 1,000 reviews proportionally sampled across all 3 sentiment classes |
+| **Stratified sampling** | 1,000 balanced reviews sampled across all sentiment classes |
 
-### Lexicon Comparison — VADER vs TextBlob
+### ⚖️ Lexicon Comparison — VADER vs TextBlob
 
 | Metric | VADER | TextBlob | Winner |
-|--------|-------|----------|--------|
-| **Accuracy** | 79.3% | 73.5% | ✅ VADER |
-| **Macro F1** | 0.4748 | 0.4332 | ✅ VADER |
-| **Weighted F1** | 0.8212 | 0.7854 | ✅ VADER |
-| **Macro Recall** | 0.5143 | 0.4559 | ✅ VADER |
-| Agreement between models | **79.2%** (792 / 1,000 reviews) | | |
+|---|---:|---:|---|
+| **Accuracy** | **79.3%** | 73.5% | ✅ VADER |
+| **Macro F1** | **0.4748** | 0.4332 | ✅ VADER |
+| **Weighted F1** | **0.8212** | 0.7854 | ✅ VADER |
+| **Macro Recall** | **0.5143** | 0.4559 | ✅ VADER |
+| **Agreement** | **79.2%** | 792 / 1,000 reviews | — |
 
-**Why VADER wins on this dataset:**
-- Handles exclamation marks, ALL-CAPS, and intensity modifiers — common in product reviews
-- Better recall on Negative and Neutral classes
-- TextBlob tends to classify more reviews as Neutral (more conservative scoring)
+### ✅ Why VADER Wins
 
-> *Both lexicon models are limited by their fixed vocabulary — they cannot learn domain-specific terms like "defect" or "stripped threads". This motivates Phase 2.*
+- Handles **exclamation marks**, **ALL-CAPS**, and **intensity modifiers**.
+- Performs better on product-review language.
+- Provides stronger recall for Negative and Neutral classes.
+- TextBlob is more conservative and often predicts Neutral.
+
+> Both lexicon models are limited by fixed vocabularies. They cannot learn domain-specific terms such as **defect**, **stripped threads**, or **broke**, which motivates Phase 2.
 
 ---
 
 ## 📗 Phase 2 — ML Models, Recommender & LLM
 
-Phase 2 applies supervised machine learning, builds a recommender system, and leverages large language models.
+Phase 2 extends the project with supervised ML, collaborative filtering, and transformer-based LLM tasks.
 
-### Steps 11–13: TF-IDF + Machine Learning
+### 🤖 Steps 11–13: TF-IDF + Machine Learning
 
-The same 1,000-review sample is used to train and evaluate two ML classifiers:
+```mermaid
+flowchart TD
+    A[📝 Review Text] --> B[🔢 TF-IDF Vectorizer<br/>Unigrams + Bigrams]
+    B --> C[📈 Logistic Regression<br/>C=1.0 · max_iter=1000]
+    B --> D[⚔️ Linear SVM<br/>C=0.5 · dual=False]
+    C --> E[📊 Evaluation]
+    D --> E
+    E --> F[🏆 Linear SVM Selected]
 
-```
-Review Text
-    │
-    ▼
-TF-IDF Vectorizer (unigrams + bigrams, min_df=3, max_features=10,000)
-    │
-    ├──▶  Logistic Regression  (C=1.0, max_iter=1000)
-    │
-    └──▶  Linear SVM           (LinearSVC, C=0.5, dual=False)
-```
-
-### Step 14: Cross-Model Comparison
-
-All four models evaluated on the **identical 1,000-review test set** from Phase 1:
-
-```
-                        Accuracy    F1-Macro   F1-Weighted
-                        ────────    ────────   ───────────
-  🥇 Linear SVM          83.9%      0.6363      0.8649
-  🥈 Logistic Regression  83.2%      0.6285      0.8597
-  🥉 VADER               79.3%      0.4748      0.8212
-     TextBlob            73.5%      0.4332      0.7854
+    style A fill:#E3F2FD,stroke:#1565C0
+    style B fill:#FFF8E1,stroke:#F9A825
+    style C fill:#E8F5E9,stroke:#2E7D32
+    style D fill:#FCE4EC,stroke:#AD1457
+    style F fill:#EDE7F6,stroke:#4527A0,stroke-width:2px
 ```
 
-**Key findings:**
-- ML models outperform lexicon-based approaches by **+13–15% in Macro F1**
-- The Neutral class (3-star reviews) is the hardest to classify for all models — mixed language makes it ambiguous
-- Linear SVM learns domain-specific negative terms (`broke`, `defect`, `return`) that lexicon tools miss
-- **Recommendation:** Linear SVM with TF-IDF for production use
+### 🏆 Step 14: Cross-Model Comparison
 
-### Step 15: Sentiment-Enhanced Recommender System
+| Rank | Model | Accuracy | F1-Macro | F1-Weighted |
+|---:|---|---:|---:|---:|
+| 🥇 | **Linear SVM** | **83.9%** | **0.6363** | **0.8649** |
+| 🥈 | Logistic Regression | 83.2% | 0.6285 | 0.8597 |
+| 🥉 | VADER Lexicon | 79.3% | 0.4748 | 0.8212 |
+| 4 | TextBlob Lexicon | 73.5% | 0.4332 | 0.7854 |
 
-A **sentiment-aware item-based collaborative filtering** approach that blends star ratings with VADER sentiment scores:
+### 🔑 Key Findings
 
+- ML models outperform lexicon-based methods by **+13–15% Macro F1**.
+- The **Neutral** class is the hardest to classify because 3-star reviews often contain mixed language.
+- Linear SVM learns domain-specific negative terms such as `broke`, `defect`, and `return`.
+- **Recommended production model:** Linear SVM with TF-IDF.
+
+---
+
+## 🛒 Step 15: Sentiment-Enhanced Recommender System
+
+The recommender system uses item-based collaborative filtering and improves it by blending star ratings with VADER sentiment scores.
+
+### 🧮 Enhanced Rating Formula
+
+```text
+sentiment_score  = (vader_compound + 1) / 2
+normalised_star  = (star_rating - 1) / 4
+enhanced_score   = 0.6 × normalised_star + 0.4 × sentiment_score
+enhanced_rating  = enhanced_score × 4 + 1
 ```
-Enhanced Rating Formula:
-─────────────────────────────────────────────────────────────
-  sentiment_score  = (vader_compound + 1) / 2
-  normalised_star  = (star_rating - 1) / 4
-  enhanced_score   = 0.6 × normalised_star + 0.4 × sentiment_score
-  enhanced_rating  = enhanced_score × 4 + 1
-─────────────────────────────────────────────────────────────
 
-  Item Similarity  = Cosine(user-item matrix columns)
-  Predicted Rating = Σ(sim[i,j] × rating[j]) / Σ(sim[i,j])
+```mermaid
+flowchart LR
+    A[⭐ Star Rating] --> C[🧮 Enhanced Score]
+    B[💬 VADER Sentiment] --> C
+    C --> D[📊 Enhanced User-Item Matrix]
+    D --> E[🔗 Cosine Similarity]
+    E --> F[🎯 Predicted Rating]
+
+    style A fill:#FFF8E1,stroke:#F9A825
+    style B fill:#E3F2FD,stroke:#1565C0
+    style C fill:#E8F5E9,stroke:#2E7D32
+    style F fill:#F3E5F5,stroke:#6A1B9A,stroke-width:2px
 ```
 
-**Results — Enhanced vs Original Ratings:**
+### 📉 Recommender Results
 
 | Metric | Original CF | Sentiment-Enhanced CF | Improvement |
-|--------|-------------|----------------------|-------------|
-| **MAE** | 0.2445 | 0.2282 | ✅ **+6.7%** |
-| **RMSE** | 0.7076 | 0.5316 | ✅ **+24.9%** |
+|---|---:|---:|---:|
+| **MAE** | 0.2445 | **0.2282** | ✅ **+6.7%** |
+| **RMSE** | 0.7076 | **0.5316** | ✅ **+24.9%** |
 
-> Blending sentiment scores provides a **smoother, more nuanced signal** — especially valuable for polarising products where star ratings alone are not enough.
+> Blending sentiment scores provides a smoother and more nuanced signal, especially for products where star ratings alone do not fully explain user satisfaction.
 
-### Steps 16–17: LLM Tasks with HuggingFace
+---
 
-Two LLM-powered tasks using pre-trained transformer models:
+## 📝 Steps 16–17: LLM Tasks with HuggingFace
 
-| Step | Task | Model Used |
-|------|------|------------|
-| **Step 16** | Automatic review summarisation | `facebook/bart-large-cnn` |
-| **Step 17** | CSR (Customer Service) response generation | `google/flan-t5-base` |
+| Step | Task | Model Used | Purpose |
+|---|---|---|---|
+| **Step 16** | Review summarisation | `facebook/bart-large-cnn` | Condense long reviews into concise summaries |
+| **Step 17** | CSR response generation | `google/flan-t5-base` | Generate polite customer service replies to negative reviews |
 
-**Step 16 — Review Summariser:**
-Condenses long product reviews into concise summaries, extracting the key positive and negative points.
-
-**Step 17 — CSR Response Generator:**
-Automatically generates professional customer service responses to negative reviews — reducing response time and ensuring consistent tone.
-
-> ⚠️ First run downloads HuggingFace model weights (~250 MB – ~1.6 GB). Subsequent runs use the local cache (`~/.cache/huggingface/`).
+> ⚠️ First run downloads HuggingFace model weights, approximately **250 MB to 1.6 GB**. Later runs use the local cache in `~/.cache/huggingface/`.
 
 ---
 
 ## 📊 Results at a Glance
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│              MODEL PERFORMANCE SUMMARY                          │
-├──────────────────────┬──────────┬───────────┬───────────────────┤
-│ Model                │ Accuracy │ F1-Macro  │ F1-Weighted       │
-├──────────────────────┼──────────┼───────────┼───────────────────┤
-│ 🥇 Linear SVM        │  83.9%   │  0.6363   │  0.8649           │
-│ 🥈 Logistic Regress. │  83.2%   │  0.6285   │  0.8597           │
-│ 🥉 VADER Lexicon     │  79.3%   │  0.4748   │  0.8212           │
-│    TextBlob Lexicon  │  73.5%   │  0.4332   │  0.7854           │
-├──────────────────────┴──────────┴───────────┴───────────────────┤
-│ Recommender System (CF)                                         │
-├────────────────────────────────┬────────────┬───────────────────┤
-│ Approach                       │    MAE     │      RMSE         │
-├────────────────────────────────┼────────────┼───────────────────┤
-│ Original Ratings CF            │   0.2445   │    0.7076         │
-│ Sentiment-Enhanced CF          │   0.2282   │    0.5316         │
-│ Improvement                    │   +6.7%    │   +24.9% ✅       │
-└────────────────────────────────┴────────────┴───────────────────┘
-```
+### 🧠 Model Performance Summary
+
+| Model | Accuracy | F1-Macro | F1-Weighted | Notes |
+|---|---:|---:|---:|---|
+| 🥇 **Linear SVM** | **83.9%** | **0.6363** | **0.8649** | Best overall model |
+| 🥈 Logistic Regression | 83.2% | 0.6285 | 0.8597 | Very close to SVM |
+| 🥉 VADER Lexicon | 79.3% | 0.4748 | 0.8212 | Best lexicon method |
+| TextBlob Lexicon | 73.5% | 0.4332 | 0.7854 | More conservative predictions |
+
+### 🛒 Recommender System Summary
+
+| Approach | MAE | RMSE | Result |
+|---|---:|---:|---|
+| Original Ratings CF | 0.2445 | 0.7076 | Baseline |
+| **Sentiment-Enhanced CF** | **0.2282** | **0.5316** | ✅ Better |
+| **Improvement** | **+6.7%** | **+24.9%** | Strong RMSE improvement |
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### ✅ Prerequisites
 
-- Python 3.9 or higher
+- Python **3.9+**
 - Pip package manager
-- Amazon Industrial & Scientific review dataset (`.json` or `.json.gz`)
+- Amazon Industrial & Scientific review dataset: `.json` or `.json.gz`
 
-### Installation & Running
-
-**Phase 1:**
+### ▶️ Run Phase 1
 
 ```bash
 cd Phase#1
@@ -716,7 +721,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-**Phase 2:**
+### ▶️ Run Phase 2
 
 ```bash
 cd Phase#2
@@ -724,27 +729,29 @@ pip install -r requirements_phase2.txt
 python main_phase2.py
 ```
 
-**Phase 2 selective execution:**
+### ⚙️ Optional Phase 2 Flags
 
 ```bash
-python main_phase2.py --skip-llm           # Skip LLM steps (Steps 16–17)
-python main_phase2.py --skip-recommender   # Skip Recommender (Step 15)
-python main_phase2.py --skip-comparison    # Skip Cross-comparison (Step 14)
-python main_phase2.py --skip-ml            # Skip ML modeling (Steps 11–13)
+python main_phase2.py --skip-llm           # Skip LLM steps, Steps 16–17
+python main_phase2.py --skip-recommender   # Skip recommender, Step 15
+python main_phase2.py --skip-comparison    # Skip cross-comparison, Step 14
+python main_phase2.py --skip-ml            # Skip ML modeling, Steps 11–13
 ```
 
-> **Important:** Run Phase 1 before Phase 2 — `sentiment_analysis_results.csv` from Phase 1 is required as input for Step 14.
+> **Important:** Run **Phase 1 before Phase 2** because `sentiment_analysis_results.csv` is required as input for Step 14.
 
-### Dependencies Overview
+---
+
+## 📦 Dependencies Overview
 
 | Package | Purpose |
-|---------|---------|
+|---|---|
 | `pandas`, `numpy` | Data manipulation |
 | `matplotlib`, `seaborn` | Visualisation |
 | `vaderSentiment` | VADER lexicon scorer |
 | `textblob` | TextBlob lexicon scorer |
-| `nltk` | Tokenisation, stopwords |
-| `scikit-learn` | TF-IDF, LR, LinearSVC |
+| `nltk` | Tokenisation and stopwords |
+| `scikit-learn` | TF-IDF, Logistic Regression, LinearSVC |
 | `transformers`, `torch` | HuggingFace LLM models |
 | `wordcloud` | Word cloud visualisations |
 
@@ -752,7 +759,7 @@ python main_phase2.py --skip-ml            # Skip ML modeling (Steps 11–13)
 
 ## 📁 Project Structure
 
-```
+```text
 sentiment-analysis-recommender-system/
 │
 ├── README.md
@@ -767,7 +774,7 @@ sentiment-analysis-recommender-system/
 │   ├── requirements.txt               # Phase 1 dependencies
 │   │
 │   ├── preprocessed_data.csv          # Cleaned dataset
-│   ├── sentiment_analysis_results.csv # Predictions (1,000 reviews)
+│   ├── sentiment_analysis_results.csv # Predictions from 1,000 reviews
 │   ├── model_comparison_table.csv     # VADER vs TextBlob metrics
 │   ├── data_exploration_summary.txt   # Dataset statistics report
 │   ├── lexicon_comparison_report.txt  # Detailed lexicon comparison
@@ -776,9 +783,9 @@ sentiment-analysis-recommender-system/
 └── Phase#2/
     ├── main_phase2.py                 # 🚀 Phase 2 entry point
     ├── ml_modeling.py                 # Steps 11-13 — TF-IDF + LR + SVM
-    ├── model_comparison.py            # Step 14   — Cross-model comparison
-    ├── recommender.py                 # Step 15   — Sentiment-enhanced CF
-    ├── llm_tasks.py                   # Steps 16-17 — Summariser + CSR gen
+    ├── model_comparison.py            # Step 14 — Cross-model comparison
+    ├── recommender.py                 # Step 15 — Sentiment-enhanced CF
+    ├── llm_tasks.py                   # Steps 16-17 — Summariser + CSR generation
     ├── requirements_phase2.txt        # Phase 2 dependencies
     │
     ├── ml_comparison_table.csv        # ML model metrics
@@ -793,8 +800,8 @@ sentiment-analysis-recommender-system/
     │
     └── models/
         ├── tfidf_vectorizer.pkl       # Trained TF-IDF vectorizer
-        ├── logistic_regression.pkl    # Trained LR model
-        └── linear_svm.pkl             # Trained SVM model
+        ├── logistic_regression.pkl    # Trained Logistic Regression model
+        └── linear_svm.pkl             # Trained Linear SVM model
 ```
 
 ---
@@ -809,5 +816,15 @@ sentiment-analysis-recommender-system/
 ---
 
 <div align="center">
-Made with ❤️ by Team #4 · COMP 262 · Centennial College
+
+## ✅ Final Recommendation
+
+**Use Linear SVM with TF-IDF for sentiment classification and Sentiment-Enhanced Collaborative Filtering for recommendations.**
+
+<br/>
+
+<img src="https://img.shields.io/badge/Best%20Classifier-Linear%20SVM-6C63FF?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Best%20Recommender-Sentiment--Enhanced%20CF-00C853?style=for-the-badge" />
+<img src="https://img.shields.io/badge/RMSE%20Improvement-24.9%25-FF6D00?style=for-the-badge" />
+
 </div>
