@@ -17,30 +17,7 @@
 
 > **Core Question:** Can we accurately predict sentiment in technical product reviews and use that signal to improve product recommendations?
 
-<br/>
-
-![divider](https://capsule-render.vercel.app/api?type=rect&color=0:1565C0,100:6A1B9A&height=4&section=header)
-
-</div>
-
----
-
-**Use Linear SVM with TF-IDF for sentiment classification**  
-**and Sentiment-Enhanced Collaborative Filtering for recommendations.**
-
-<br/>
-
-![Best Classifier](https://img.shields.io/badge/Best%20Classifier-Linear%20SVM-6C63FF?style=for-the-badge&logo=lightning&logoColor=white)
-![Best Recommender](https://img.shields.io/badge/Best%20Recommender-Sentiment--Enhanced%20CF-00C853?style=for-the-badge&logo=star&logoColor=white)
-![RMSE Improvement](https://img.shields.io/badge/RMSE%20Improvement-24.9%25-FF6D00?style=for-the-badge&logo=trending-up&logoColor=white)
-
-<br/>
-
-![footer](https://capsule-render.vercel.app/api?type=waving&color=0:00897B,50:6A1B9A,100:1565C0&height=120&section=footer&animation=fadeIn)
-
-</div>
-
-
+![footer](https://capsule-render.vercel.app/api?type=waving&color=0:00897B,50:6A1B9A,100:1565C0&height=120&section=footer&animation=fadeIn)</div>
 ---
 
 ## 📋 Table of Contents
