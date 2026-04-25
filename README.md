@@ -1,4 +1,8 @@
 <div align="center">
+    
+![header](https://capsule-render.vercel.app/api?type=waving&color=0:1565C0,50:6A1B9A,100:00897B&height=220&section=header&text=Sentiment%20Analysis%20%26%20Recommender%20System&fontSize=32&fontColor=ffffff&fontAlignY=40&desc=Amazon%20Industrial%20%26%20Scientific%20Product%20Reviews&descSize=16&descAlignY=62&animation=fadeIn)
+
+<br/>
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-Transformers-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/)
