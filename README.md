@@ -6,12 +6,6 @@
 
 ## Amazon Industrial & Scientific Product Reviews
 
-<img src="https://img.shields.io/badge/COMP%20262-Team%20%234-6C63FF?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Centennial%20College-Semester%204-00A3E0?style=for-the-badge" />
-<img src="https://img.shields.io/badge/NLP%20Pipeline-End--to--End-00C853?style=for-the-badge" />
-
-<br/><br/>
-
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-Transformers-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/)
