@@ -367,6 +367,4 @@ sentiment-analysis-recommender-system/
 
 ---
 
-<div align="center">
-Made with ❤️ by Team #4 · COMP 262 · Centennial College
-</div>
+
